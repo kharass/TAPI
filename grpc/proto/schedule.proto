@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+service ScheduleService {
+    rpc getStudent(GetStudentRequest) returns (StudentResponse) {}
+    rpc getCourses(GetCoursesRequest) returns (CoursesResponse) {}
+    rpc getLecturer(GetLecturerRequest) returns (LecturerResponse) {}
+}
+
+message StudentResponse {
+    string name = 1;
+    string surname = 2;
+}
+
+message GetStudentRequest {
+    string studentId = 1;
+}
+
+message CoursesResponse {
+    repeated Course courses = 1;
+}
+
+message Course {
+    string name = 1;
+    string department = 2;
+}
+
+message GetCoursesRequest {
+}
+
+message LecturerResponse {
+    string name = 1;
+    string surname = 2;
+}
+
+message GetLecturerRequest {
+    string lecturerId = 1;
+}
